@@ -6,7 +6,7 @@ import Bookmarked from "./pages/Bookmark";
 function App() {
 	return (
 		<div className='flex flex-col h-screen'>
-			<nav className='bg-gray-800 py-5 text-white text-center fixed w-full'>
+			<nav className='bg-gray-800 py-5 text-white text-center fixed w-full z-50'>
 				<ul className='flex justify-around'>
 					<li>
 						<NavLink
