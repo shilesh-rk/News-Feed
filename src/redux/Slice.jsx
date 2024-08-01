@@ -29,18 +29,6 @@ export const globalData = createSlice({
 				state.bookmarked_items.push(action.payload);
 			}
 		},
-		// setBookmarkedItems: (state, action) => {
-		// 	const find = state.bookmarked_items.find(
-		// 		(item) => item.title === action.payload.title
-		// 	);
-		// 	if (find > 0) {
-		// 		state.bookmarked_items = state.bookmarked_items.filter(
-		// 			(item) => item.title !== action.payload.title
-		// 		);
-		// 	} else {
-		// 		state.bookmarked_items.push(action.payload);
-		// 	}
-		// },
 		setCountry: (state, action) => {
 			state.country = action.payload;
 		},

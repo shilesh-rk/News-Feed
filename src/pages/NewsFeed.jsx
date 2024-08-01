@@ -5,8 +5,6 @@ import axios from "axios";
 import Cards from "./Cards";
 
 const NewsFeed = () => {
-	// const news_feed = useSelector((state) => state.Articles.all_items);
-	// const loading = useSelector((state) => state.Articles.loading);
 	const { all_items, loading, country } = useSelector(
 		(state) => state.Articles
 	);
@@ -23,7 +21,6 @@ const NewsFeed = () => {
 		try {
 			dispatch(setLoading(true));
 			const result = await axios.get(
-				// "https://newsapi.org/v2/top-headlines?country=in&apiKey=263b6747186d4936a30a4d6ec37800ea"
 				`${api_env.URI}country=${changedCountry}&apiKey=${api_env.API_KEY}`
 			);
 			if (result?.data.status === "ok") {
@@ -45,8 +42,6 @@ const NewsFeed = () => {
 		}
 		if (country !== previousCountry.current) {
 			fetchData(country);
-			// console.log("previousCountry", previousCountry);
-			// console.log("country", country);
 			previousCountry.current = country;
 		}
 	}, [country, first, all_items.length]);

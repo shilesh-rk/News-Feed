@@ -4,8 +4,6 @@ import { addFav } from "../redux/Slice";
 import newsImage from "./download.jpeg";
 
 const Cards = ({ data }) => {
-	// const news_feed = useSelector((state) => state.Articles.all_items);
-	// const marked = useSelector((state) => state.Articles.bookmarked_items);
 	const { all_items, bookmarked_items } = useSelector(
 		(state) => state.Articles
 	);
@@ -73,7 +71,6 @@ const Cards = ({ data }) => {
 			</svg>
 		);
 	};
-	// const feed = data ? news_feed : marked;
 	const feed = data ? all_items : bookmarked_items;
 	return (
 		<div className='flex flex-wrap justify-center mt-10'>
