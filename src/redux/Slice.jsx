@@ -4,6 +4,7 @@ const initialState = {
 	all_items: [],
 	loading: false,
 	bookmarked_items: [],
+	country: "",
 };
 
 export const globalData = createSlice({
@@ -40,9 +41,12 @@ export const globalData = createSlice({
 		// 		state.bookmarked_items.push(action.payload);
 		// 	}
 		// },
+		setCountry: (state, action) => {
+			state.country = action.payload;
+		},
 	},
 });
 
-export const { addData, setLoading, addFav, setBookmarkedItems } =
+export const { addData, setLoading, addFav, setBookmarkedItems, setCountry } =
 	globalData.actions;
 export default globalData.reducer;

@@ -4,8 +4,11 @@ import { addFav } from "../redux/Slice";
 import newsImage from "./download.jpeg";
 
 const Cards = ({ data }) => {
-	const news_feed = useSelector((state) => state.Articles.all_items);
-	const marked = useSelector((state) => state.Articles.bookmarked_items);
+	// const news_feed = useSelector((state) => state.Articles.all_items);
+	// const marked = useSelector((state) => state.Articles.bookmarked_items);
+	const { all_items, bookmarked_items } = useSelector(
+		(state) => state.Articles
+	);
 	const dispatch = useDispatch();
 
 	// Function to convert source name
@@ -70,7 +73,8 @@ const Cards = ({ data }) => {
 			</svg>
 		);
 	};
-	const feed = data ? news_feed : marked;
+	// const feed = data ? news_feed : marked;
+	const feed = data ? all_items : bookmarked_items;
 	return (
 		<div className='flex flex-wrap justify-center mt-10'>
 			{feed.length > 0
@@ -83,7 +87,9 @@ const Cards = ({ data }) => {
 								<button
 									className='relative float-right right-20 top-4'
 									onClick={() => dispatch(addFav(news_feed))}>
-									{marked.some((item) => item.title === news_feed.title) ? (
+									{bookmarked_items.some(
+										(item) => item.title === news_feed.title
+									) ? (
 										<SVG color={"yellow"} stroke={"none"} />
 									) : (
 										<SVG color={"none"} stroke={"gray"} />
